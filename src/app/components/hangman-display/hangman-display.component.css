@@ -1,0 +1,117 @@
+.all-around {
+    display: flex;
+    flex-direction: column;
+   }
+ 
+.mistakes-count{
+    text-align: center;
+    color: aliceblue;
+
+}
+.man-bounce {
+    animation: shimmy 1s infinite;
+    animation-direction: alternate;
+}
+@keyframes shimmy{
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(0px, 17px);
+    }
+}
+
+.category{
+    text-align: center;
+}
+.cat-btn{
+    background-color:#1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    min-width: 36px;
+    min-height: 36px;
+}
+
+/* #screenFlash {
+    width: 100%;
+    height: 100%;
+   
+  } */
+  .gameScreen {
+    height: 388px;
+    /* top: -82px; */
+    background: #aaccee;
+    display: flex;
+    width: 100%;
+  
+  }
+
+  #svgWrap {
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+ .water {
+    bottom: 48%;
+    position: fixed;
+    margin-top: auto;
+    height: 180px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #336699;
+    /* animation: wave 15s ease-in infinite; */
+  } 
+  @keyframes wave {
+    0% {height:180px ;}
+    10% {height: 195px;}
+    
+}
+#floatGroup{
+  /* animation: wave1 20s linear infinite; */
+  animation: MoveUpDown 1s linear infinite;
+}
+@keyframes MoveUpDown {
+0%, 100% {
+  transform: translateY(0);
+}
+50% {
+  transform: translateY(-8px);
+}
+}
+
+
+  .water1{
+    height: 200px;
+  }
+  .water2{
+    height: 230px;
+  }
+  .water3{
+    height: 250px; 
+  }
+  .water4{
+    height: 275px;
+  }
+  /* .water5{
+    height: 275px;
+  }
+  .water6{
+    height: 280px;
+  } */
+
+  .water1,.water2,.water3, .water4, .water5, .water6{
+    bottom: 48%;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #336699;
+  }
+
+  

@@ -1,0 +1,368 @@
+<style>
+  :host {
+    font-size: 24px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #aaccee;
+    color: black;
+    font-weight: 600;
+    flex-wrap: wrap;
+
+  }
+
+  /* .toolbar img {
+    margin: 0 16px;
+  } */
+
+  /* .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  .toolbar #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover,
+  .toolbar #youtube-logo:hover {
+    opacity: 0.8;
+  } */
+
+  .content {
+    display: flex;
+    /* margin: 82px auto 32px; */
+  
+  }
+  #logoIconWrap {
+    width: 75px;
+    height: 75px;
+    padding-left: 30px;
+  }
+  .menuItem {
+    float: left;
+    margin-right: 20px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .menuIconWrap {
+    width: 35px;
+    height: 35px;
+    margin-top: 20px;
+    
+  }
+#menuSection{
+  padding-right: 45px;
+  margin-left: auto;
+}
+a{
+  text-decoration: none;
+  color: #336699;
+}
+a:hover {
+    text-decoration: underline;
+}
+#instructionsIcon:hover, #aboutIcon:hover{
+  fill:#336699;
+
+}
+.container, .container-about{
+  display: flex;
+  justify-content: center;
+  max-width: unset;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  overflow: auto;
+  color: #fff;
+    position: absolute;
+    z-index: 900;
+
+}
+.show-inst, .show-about{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.instructionsText,.aboutText{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  margin-left: 180px;
+}
+.close_button{
+  height: 50px;
+  width: 50px;
+  border-radius: 23px;
+  margin-top: 10px;
+  background-color: #fff;
+  border: none;
+  float: right;
+}
+h3, h4{
+  color: #ace;
+}
+
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <!-- <img
+    width="40"
+    alt="Angular Logo"
+    src="https://raw.githubusercontent.com/brpandey/elixir-hangman/master/priv/images/hangman.jpg"
+  /> -->
+  <svg id="logoIconWrap" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 198 229">
+    <g id="logoIcon" fill="#FFF" transform="translate(-315.27792,-380.89767)">
+      <path transform="matrix(1.3660901,0,0,1.3660901,-20.907991,-327.32905)" d="m319 623-18-10.4 0-20.8 18-10.4 18 10.4 0 20.8zM412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3M412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3M412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3"/>
+      <path d="m412 469 0-70.3 2.69-17.9 2.69 17.9 0 70.3z"/>
+      <path d="m415 449-25.3-24.9-5.15-8.7 7.71 3.95 25.3 24.9z"/>
+      <path d="m415 449 25.3-24.9 5.15-8.7-7.71 3.95-25.3 24.9z"/>
+      <path d="m415 424-15.8-15.6-3.22-5.44 4.82 2.47 15.8 15.6z"/>
+      <path d="m415 424 15.8-15.6 3.22-5.44-4.82 2.47-15.8 15.6z"/>
+      <path d="m415 404-9.41-9.26-1.91-3.23 2.86 1.47 9.41 9.26z"/>
+      <path d="m415 404 9.41-9.26 1.91-3.23-2.86 1.47-9.41 9.26z"/>
+      <path d="m412 521 0 70.3 2.69 17.9 2.69-17.9 0-70.3z"/>
+      <path d="m415 542-25.3 24.9-5.15 8.7 7.71-3.95 25.3-24.9z"/>
+      <path d="m415 542 25.3 24.9 5.15 8.7-7.71-3.95-25.3-24.9z"/>
+      <path d="m415 567-15.8 15.6-3.22 5.44 4.82-2.47 15.8-15.6z"/>
+      <path d="m415 567 15.8 15.6 3.22 5.44-4.82-2.47-15.8-15.6z"/>
+      <path d="m415 586-9.41 9.26-1.91 3.23 2.86-1.47 9.41-9.26z"/>
+      <path d="m415 586 9.41 9.26 1.91 3.23-2.86-1.47-9.41-9.26z"/>
+      <path d="m436 511 60.9 35.2 16.8 6.6-14.1-11.3-60.9-35.2z"/>
+      <path d="m455 519 8.92 34.4 4.96 8.81 0.429-8.65-8.92-34.4z"/>
+      <path d="m455 519 34.2-9.47 10.1-0.115-7.28 4.7-34.2 9.47z"/>
+      <path d="m476 531 5.57 21.5 3.1 5.51 0.268-5.41-5.57-21.5z"/>
+      <path d="m476 531 21.4-5.92 6.32-0.0716-4.55 2.94-21.4 5.92z"/>
+      <path d="m493 541 3.31 12.8 1.84 3.27 0.159-3.21-3.31-12.8z"/>
+      <path d="m493 541 12.7-3.52 3.76-0.0426-2.7 1.75-12.7 3.52z"/>
+      <path d="m393 480-60.9-35.2-16.8-6.6 14.1 11.3 60.9 35.2z"/>
+      <path d="m374 473-8.92-34.4-4.96-8.81-0.429 8.65 8.92 34.4z"/>
+      <path d="m374 473-34.2 9.47-10.1 0.115 7.28-4.7 34.2-9.47z"/>
+      <path d="m352 460-5.57-21.5-3.1-5.51-0.268 5.41 5.57 21.5z"/>
+      <path d="m352 460-21.4 5.92-6.32 0.0716 4.55-2.94 21.4-5.92z"/>
+      <path d="m336 451-3.31-12.8-1.84-3.27-0.159 3.21 3.31 12.8z"/>
+      <path d="m336 451-12.7 3.52-3.76 0.0426 2.7-1.75 12.7-3.52z"/>
+      <path d="m435 480 60.9-35.2 16.8-6.6-14.1 11.3-60.9 35.2z"/>
+      <path d="m454 473 8.92-34.4 4.96-8.81 0.429 8.65-8.92 34.4z"/>
+      <path d="m454 473 34.2 9.47 10.1 0.115-7.28-4.7-34.2-9.47z"/>
+      <path d="m476 460 5.57-21.5 3.1-5.51 0.268 5.41-5.57 21.5z"/>
+      <path d="m476 460 21.4 5.92 6.32 0.0716-4.55-2.94-21.4-5.92z"/>
+      <path d="m493 450 3.31-12.8 1.84-3.27 0.159 3.21-3.31 12.8z"/>
+      <path d="m493 450 12.7 3.52 3.76 0.0426-2.7-1.75-12.7-3.52z"/>
+      <path d="m394 511-60.9 35.2-16.8 6.6 14.1-11.3 60.9-35.2z"/>
+      <path d="m375 519-8.92 34.4-4.96 8.81-0.429-8.65 8.92-34.4z"/>
+      <path d="m375 519-34.2-9.47-10.1-0.115 7.28 4.7 34.2 9.47z"/>
+      <path d="m353 532-5.57 21.5-3.1 5.51-0.268-5.41 5.57-21.5z"/>
+      <path d="m353 532-21.4-5.92-6.32-0.0716 4.55 2.94 21.4 5.92z"/>
+      <path d="m337 541-3.31 12.8-1.84 3.27-0.159-3.21 3.31-12.8z"/>
+      <path d="m337 541-12.7-3.52-3.76-0.0426 2.7 1.75 12.7 3.52z"/>
+    </g>
+    
+  </svg>
+  <div class="text-hangman" style="height:25px ;">
+    <svg style="height:32px; margin-left:-70px;"  xmlns="http://www.w3.org/2000/svg">
+      <text x="100" y="20" style="font-size:48px; stroke:#000; fill:#336699;">SVG Hangman</text>
+    </svg>
+  </div>
+  <!-- <h1>SVG Hangman</h1> -->
+  <section id="menuSection">
+  <div class="menuItem">
+    <svg id="instructionsIconWrap" class="menuIconWrap" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 198 229">
+      <g id="instructionsIcon" class="menuSnowflake" fill="#FFF" transform="translate(-315.27792,-380.89767)">
+        <path transform="matrix(1.3660901,0,0,1.3660901,-20.907991,-327.32905)" d="m319 623-18-10.4 0-20.8 18-10.4 18 10.4 0 20.8zM412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3M412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3M412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3"/>
+        <path d="m412 469 0-70.3 2.69-17.9 2.69 17.9 0 70.3z"/>
+        <path d="m415 449-25.3-24.9-5.15-8.7 7.71 3.95 25.3 24.9z"/>
+        <path d="m415 449 25.3-24.9 5.15-8.7-7.71 3.95-25.3 24.9z"/>
+        <path d="m415 424-15.8-15.6-3.22-5.44 4.82 2.47 15.8 15.6z"/>
+        <path d="m415 424 15.8-15.6 3.22-5.44-4.82 2.47-15.8 15.6z"/>
+        <path d="m415 404-9.41-9.26-1.91-3.23 2.86 1.47 9.41 9.26z"/>
+        <path d="m415 404 9.41-9.26 1.91-3.23-2.86 1.47-9.41 9.26z"/>
+        <path d="m412 521 0 70.3 2.69 17.9 2.69-17.9 0-70.3z"/>
+        <path d="m415 542-25.3 24.9-5.15 8.7 7.71-3.95 25.3-24.9z"/>
+        <path d="m415 542 25.3 24.9 5.15 8.7-7.71-3.95-25.3-24.9z"/>
+        <path d="m415 567-15.8 15.6-3.22 5.44 4.82-2.47 15.8-15.6z"/>
+        <path d="m415 567 15.8 15.6 3.22 5.44-4.82-2.47-15.8-15.6z"/>
+        <path d="m415 586-9.41 9.26-1.91 3.23 2.86-1.47 9.41-9.26z"/>
+        <path d="m415 586 9.41 9.26 1.91 3.23-2.86-1.47-9.41-9.26z"/>
+        <path d="m436 511 60.9 35.2 16.8 6.6-14.1-11.3-60.9-35.2z"/>
+        <path d="m455 519 8.92 34.4 4.96 8.81 0.429-8.65-8.92-34.4z"/>
+        <path d="m455 519 34.2-9.47 10.1-0.115-7.28 4.7-34.2 9.47z"/>
+        <path d="m476 531 5.57 21.5 3.1 5.51 0.268-5.41-5.57-21.5z"/>
+        <path d="m476 531 21.4-5.92 6.32-0.0716-4.55 2.94-21.4 5.92z"/>
+        <path d="m493 541 3.31 12.8 1.84 3.27 0.159-3.21-3.31-12.8z"/>
+        <path d="m493 541 12.7-3.52 3.76-0.0426-2.7 1.75-12.7 3.52z"/>
+        <path d="m393 480-60.9-35.2-16.8-6.6 14.1 11.3 60.9 35.2z"/>
+        <path d="m374 473-8.92-34.4-4.96-8.81-0.429 8.65 8.92 34.4z"/>
+        <path d="m374 473-34.2 9.47-10.1 0.115 7.28-4.7 34.2-9.47z"/>
+        <path d="m352 460-5.57-21.5-3.1-5.51-0.268 5.41 5.57 21.5z"/>
+        <path d="m352 460-21.4 5.92-6.32 0.0716 4.55-2.94 21.4-5.92z"/>
+        <path d="m336 451-3.31-12.8-1.84-3.27-0.159 3.21 3.31 12.8z"/>
+        <path d="m336 451-12.7 3.52-3.76 0.0426 2.7-1.75 12.7-3.52z"/>
+        <path d="m435 480 60.9-35.2 16.8-6.6-14.1 11.3-60.9 35.2z"/>
+        <path d="m454 473 8.92-34.4 4.96-8.81 0.429 8.65-8.92 34.4z"/>
+        <path d="m454 473 34.2 9.47 10.1 0.115-7.28-4.7-34.2-9.47z"/>
+        <path d="m476 460 5.57-21.5 3.1-5.51 0.268 5.41-5.57 21.5z"/>
+        <path d="m476 460 21.4 5.92 6.32 0.0716-4.55-2.94-21.4-5.92z"/>
+        <path d="m493 450 3.31-12.8 1.84-3.27 0.159 3.21-3.31 12.8z"/>
+        <path d="m493 450 12.7 3.52 3.76 0.0426-2.7-1.75-12.7-3.52z"/>
+        <path d="m394 511-60.9 35.2-16.8 6.6 14.1-11.3 60.9-35.2z"/>
+        <path d="m375 519-8.92 34.4-4.96 8.81-0.429-8.65 8.92-34.4z"/>
+        <path d="m375 519-34.2-9.47-10.1-0.115 7.28 4.7 34.2 9.47z"/>
+        <path d="m353 532-5.57 21.5-3.1 5.51-0.268-5.41 5.57-21.5z"/>
+        <path d="m353 532-21.4-5.92-6.32-0.0716 4.55 2.94 21.4 5.92z"/>
+        <path d="m337 541-3.31 12.8-1.84 3.27-0.159-3.21 3.31-12.8z"/>
+        <path d="m337 541-12.7-3.52-3.76-0.0426 2.7 1.75 12.7 3.52z"/>
+      </g>
+    </svg>
+    <a href="#" (click)="changeInst()" id="instructionsLink">Instructions</a>
+  </div>
+
+  <div class="menuItem">
+    <svg class="menuIconWrap" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 198 229">
+      <g id="aboutIcon" class="menuSnowflake" fill="#FFF" transform="translate(-315.27792,-380.89767)">
+        <path transform="matrix(1.3660901,0,0,1.3660901,-20.907991,-327.32905)" d="m319 623-18-10.4 0-20.8 18-10.4 18 10.4 0 20.8zM412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3M412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3M412 469l0-70.3 2.69-17.9 2.69 17.9 0 70.3"/>
+        <path d="m412 469 0-70.3 2.69-17.9 2.69 17.9 0 70.3z"/>
+        <path d="m415 449-25.3-24.9-5.15-8.7 7.71 3.95 25.3 24.9z"/>
+        <path d="m415 449 25.3-24.9 5.15-8.7-7.71 3.95-25.3 24.9z"/>
+        <path d="m415 424-15.8-15.6-3.22-5.44 4.82 2.47 15.8 15.6z"/>
+        <path d="m415 424 15.8-15.6 3.22-5.44-4.82 2.47-15.8 15.6z"/>
+        <path d="m415 404-9.41-9.26-1.91-3.23 2.86 1.47 9.41 9.26z"/>
+        <path d="m415 404 9.41-9.26 1.91-3.23-2.86 1.47-9.41 9.26z"/>
+        <path d="m412 521 0 70.3 2.69 17.9 2.69-17.9 0-70.3z"/>
+        <path d="m415 542-25.3 24.9-5.15 8.7 7.71-3.95 25.3-24.9z"/>
+        <path d="m415 542 25.3 24.9 5.15 8.7-7.71-3.95-25.3-24.9z"/>
+        <path d="m415 567-15.8 15.6-3.22 5.44 4.82-2.47 15.8-15.6z"/>
+        <path d="m415 567 15.8 15.6 3.22 5.44-4.82-2.47-15.8-15.6z"/>
+        <path d="m415 586-9.41 9.26-1.91 3.23 2.86-1.47 9.41-9.26z"/>
+        <path d="m415 586 9.41 9.26 1.91 3.23-2.86-1.47-9.41-9.26z"/>
+        <path d="m436 511 60.9 35.2 16.8 6.6-14.1-11.3-60.9-35.2z"/>
+        <path d="m455 519 8.92 34.4 4.96 8.81 0.429-8.65-8.92-34.4z"/>
+        <path d="m455 519 34.2-9.47 10.1-0.115-7.28 4.7-34.2 9.47z"/>
+        <path d="m476 531 5.57 21.5 3.1 5.51 0.268-5.41-5.57-21.5z"/>
+        <path d="m476 531 21.4-5.92 6.32-0.0716-4.55 2.94-21.4 5.92z"/>
+        <path d="m493 541 3.31 12.8 1.84 3.27 0.159-3.21-3.31-12.8z"/>
+        <path d="m493 541 12.7-3.52 3.76-0.0426-2.7 1.75-12.7 3.52z"/>
+        <path d="m393 480-60.9-35.2-16.8-6.6 14.1 11.3 60.9 35.2z"/>
+        <path d="m374 473-8.92-34.4-4.96-8.81-0.429 8.65 8.92 34.4z"/>
+        <path d="m374 473-34.2 9.47-10.1 0.115 7.28-4.7 34.2-9.47z"/>
+        <path d="m352 460-5.57-21.5-3.1-5.51-0.268 5.41 5.57 21.5z"/>
+        <path d="m352 460-21.4 5.92-6.32 0.0716 4.55-2.94 21.4-5.92z"/>
+        <path d="m336 451-3.31-12.8-1.84-3.27-0.159 3.21 3.31 12.8z"/>
+        <path d="m336 451-12.7 3.52-3.76 0.0426 2.7-1.75 12.7-3.52z"/>
+        <path d="m435 480 60.9-35.2 16.8-6.6-14.1 11.3-60.9 35.2z"/>
+        <path d="m454 473 8.92-34.4 4.96-8.81 0.429 8.65-8.92 34.4z"/>
+        <path d="m454 473 34.2 9.47 10.1 0.115-7.28-4.7-34.2-9.47z"/>
+        <path d="m476 460 5.57-21.5 3.1-5.51 0.268 5.41-5.57 21.5z"/>
+        <path d="m476 460 21.4 5.92 6.32 0.0716-4.55-2.94-21.4-5.92z"/>
+        <path d="m493 450 3.31-12.8 1.84-3.27 0.159 3.21-3.31 12.8z"/>
+        <path d="m493 450 12.7 3.52 3.76 0.0426-2.7-1.75-12.7-3.52z"/>
+        <path d="m394 511-60.9 35.2-16.8 6.6 14.1-11.3 60.9-35.2z"/>
+        <path d="m375 519-8.92 34.4-4.96 8.81-0.429-8.65 8.92-34.4z"/>
+        <path d="m375 519-34.2-9.47-10.1-0.115 7.28 4.7 34.2 9.47z"/>
+        <path d="m353 532-5.57 21.5-3.1 5.51-0.268-5.41 5.57-21.5z"/>
+        <path d="m353 532-21.4-5.92-6.32-0.0716 4.55 2.94 21.4 5.92z"/>
+        <path d="m337 541-3.31 12.8-1.84 3.27-0.159-3.21 3.31-12.8z"/>
+        <path d="m337 541-12.7-3.52-3.76-0.0426 2.7 1.75 12.7 3.52z"/>
+      </g>
+    </svg>
+    <a href="#" (click)="changeAbout()" id="aboutLink">About</a>
+  </div>
+  </section>
+</div>
+<div class="container" *ngIf="showInst">
+  <div class="show-inst">
+    <div class="button-all">
+      <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+    </div>
+    <div class="instructionsText">
+      <h3>Rules of Hangman</h3>
+      <p class="indent1">
+        This game is a version of the widely popular Hangman. As in all other Hangman games, your goal is to guess the letters that make up a word. If you make five wrong guesses, you lose the game!
+      </p>
+      <h4>The Keyboard and Play Area</h4>
+      <p class="indent1">
+        The Keyboard at the bottom displays all available letters, if you choose some letter color changes and you can't use it anymore. Above the keyboard there are empty dashes that tell how many letters a word has. A category is also shown to make it easier for the player which word it is. If the player guesses the correct letter, the corresponding field will be filled with that letter, if he makes a mistake, the number of remaining attempts is reduced, which is also displayed on the "Play Area". 
+      </p>
+      <h4>The Game Area</h4>
+      <p class="indent1">
+        The Game Area is the Antarctic scene that takes up most of the screen. Just like the stick man and gallows pole of other Hangman games, it tells you how close you are to losing the game. Each wrong guess causes the water to rise up a little bit more. Penguins, being clumsy and defenseless creatures, prefer to stay on stable ground when the water is full of big dangerous things with sharp teeth.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container-about" *ngIf="showAbout">
+  <div class="show-about">
+    <div class="button-all">
+      <button class="close_button" (click)="onCloseModal()" style="font-size:30px; cursor: pointer;" id="close">&times;</button>
+    </div>
+    <div class="aboutText">
+      <p>
+        This game was "a just for fun" project that I made to get some practice with modern Web graphics and animation technologies. If you're interested in those things, keep reading!
+      </p>
+      <h3>Graphics</h3>
+
+      <p class="indent1">
+        All of the game's graphics are SVG shapes. <a href="https://developer.mozilla.org/en-US/docs/Web/SVG" title="SVG">SVG (Scalable Vector Graphics)</a> is a standard for representing images that uses shapes, lines, and coordinates instead of pixels. This means that they can scale to any possible resolution - see this in action by resizing your browser window!
+      </p>
+  
+      <h3>TypeScript/JavaScript</h3>
+  
+      <p class="indent1">
+        All of the logic for this game were written in JavaScript/TypeScript, inside Angular framework. For animation I used CSS properties. I made my own json file for words, it's chooses random category, and random word from that category. 
+      </p>
+      <ul class="indent3">
+        <li>
+          <a href="https://angular.io/" title="Angular"><strong>Angular</strong></a> - Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript. 
+        </li>
+        <li>
+          <a href="https://www.typescriptlang.org/" title="TypeScript"><strong>TypeScript</strong></a> - TypeScript is a superset of typed JavaScript (optional) that can help build and manage large-scale JavaScript projects. It can be considered JavaScript with additional features like strong static typing, compilation, and object-oriented programming.
+        </li>
+        <li>
+          <a href="https://www.w3schools.com/cssref/css3_pr_animation.asp" title="CSS"><strong>CSS Animation</strong></a> - An animation lets an element gradually change from one style to another.To use CSS animation, you must first specify some keyframes for the animation. Keyframes hold what styles the element will have at certain times.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="content" role="main"> -->
+  <app-hangman></app-hangman>
+
+<!-- </div> -->
+
+
